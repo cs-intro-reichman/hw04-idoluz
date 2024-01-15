@@ -1,6 +1,6 @@
 public class ArrayOps {
     public static void main(String[] args) {
-        int array1 [] = {-1, -2, -3, -4, -5};
+        int array1 [] = {2, 3, 3, 7, };
         int array [] = {1, 3, -4, 4, 5, 4, 5};
         System.out.println(secondMaxValue(array1));
        
@@ -23,7 +23,7 @@ public class ArrayOps {
        
        
         if (missingNum == 0) {
-            return 1;
+            return 0;
         }
 
         return missingNum;
@@ -31,25 +31,16 @@ public class ArrayOps {
     }
 
     public static int secondMaxValue(int [] array) {
-        int biggest = 0;
+        int largest =Math.max(array[0], array[1]);
+        int secondLargest = Math.max(array[0], array[1]);
         for (int i = 0; i < array.length; i++) {
-            if (array[i] > biggest) {
-                biggest = array [i];
-            }    
-        }
-        int newarr [] = new int [array.length];
-        for (int i = 0; i < newarr.length; i++) {
-            if (array [i] != biggest) {
-                newarr[i] = array[i];
+            if (array[i] > largest) {
+                secondLargest = largest;
+                largest = array[i];
+
             }
         }
-        int ans = 0;
-        for (int i = 0; i < newarr.length; i++) {
-            if (newarr[i] > ans) {
-                ans = newarr[i];
-            }
-        }
-        return ans;
+        return secondLargest;
     }
 
     public static boolean containsTheSameElements(int [] array1,int [] array2) {

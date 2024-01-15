@@ -22,28 +22,25 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        String test = "    Intro to  coMPUter   sCIEncE        ";
-        System.out.println(camelCase(test));
+        String test = "One two tHRee world";
+        System.out.println(capVowelsLowRest(test));
         
     }
 
     public static String capVowelsLowRest (String string) {
         String ans = "";
-        int character = 0;
         for (int i = 0; i < string.length(); i++) {
-            if (string.charAt(i) == 'a' || string.charAt(i) == 'e' || string.charAt(i) == 'i' || string.charAt(i) == 'o' || string.charAt(i) == 'u' ) {
-               character = ((int) string.charAt(i)) - 32;
-                char current = 0;
-               current += character;
-               ans += current;
-               current = 0;
-
-            } else {  
-                ans += string.charAt(i);   
-            }
-
+            char curr = string.charAt(i);
+            if (curr == 'a' || curr == 'e' || curr == 'i' || curr == 'o' || curr == 'u'){
+                ans += (char) (curr - 32);
+            } else if (curr == 'A' || curr == 'E' || curr == 'I' || curr == 'O' || curr == 'U') {     
+                ans += curr;
+            } else if (curr >= 'B' && curr <= 'Z') {      
+                ans = ans + (char)(curr + 32);
+            }else ans += curr;
         }
         return ans;
+    
     } 
 
     public static String camelCase (String string) { 
